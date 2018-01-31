@@ -18,6 +18,7 @@ class App extends Component {
   onStoreUpdate(storeProps){  
     this.setState({storeProps});
   }
+
   render () {
       const {state:{storeProps}} = this;
       return (
