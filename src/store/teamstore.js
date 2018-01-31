@@ -3,7 +3,8 @@ import Immutable from 'immutable';
 import teamactions from ./action/teamaction.js;
 
 let state =Immutable.fromJS({
-    team: undefined
+    teams: [],
+    fetch:false
 }),
 store = Reflux.createStore({
    listenables: teamactions,
@@ -20,4 +21,4 @@ store = Reflux.createStore({
     }
 }
 
-})
+});
