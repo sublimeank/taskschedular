@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app.js';
+import ParentMember from './component/add-view-member/test-parent.js';
 
-ReactDOM.render(<App />,document.getElementById("app"));
+ReactDOM.render(<ParentMember />,document.getElementById("app"));
