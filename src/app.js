@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import Store from './store/index.js';
-import TaskSchedular from 'taskschedular.js';
+import ReactDOM from 'react-dom';
+//import Store from './store/index.js';
+import Event from "./component/events.js";
+import EditEvent from "./component/editevent.js";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+//import TaskSchedular from 'taskschedular.js';
 
-class App extends Component {
+/*class App extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -28,5 +32,19 @@ class App extends Component {
       );
   }
 
+}*/
+class App extends React.Component {
+  render () {
+      return (
+        <div>
+            <MuiThemeProvider>
+              <Event/>
+            </MuiThemeProvider>
+        </div>
+      );
+  }
 }
+  ReactDOM.render(<App/>, document.getElementById("app"));
+  
+
 
