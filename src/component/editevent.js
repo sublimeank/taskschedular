@@ -23,6 +23,9 @@ const styles = theme => ({
     button: {
         margin: theme.spacing.unit,
       },
+      input: {
+        display: 'none',
+      },
 });
 class EditEvent extends React.Component {
     constructor(props) {
@@ -32,6 +35,7 @@ class EditEvent extends React.Component {
             isEditClicked: false,
             events: {}
         }
+        
     }
 
     handleClickOpen = () => {
@@ -41,13 +45,13 @@ class EditEvent extends React.Component {
     handleClose = () => {
         this.setState({ open: false });
     };
-    handleSubmit = () => {
+    handleEdit = () => {
         this.setState({ isEditClicked: !this.state.isEditClicked });
     }
 
 
     render() {
-        //const { classes } = props;
+        const { classes } = this.props;
         const events = this.props.events;
         return (
             <div>
@@ -86,13 +90,21 @@ class EditEvent extends React.Component {
                             defaultValue={this.props.events.location} />
                     </DialogContent>
                     <DialogActions>
-                        <Button fab color="secondary" aria-label="edit"  onClick={this.handleSubmit}>
-                          <Edit />
-                            </Button> 
+                       {this.state.isEditClicked?
+                            <div>
+                                <Button raised color="primary" >Submit</Button>
+                                <Button raised color="secondary"  onClick={this.handleEdit} className={classes.button} >Abort </Button>
+                            </div>
+                            :<Button fab color="secondary" aria-label="edit"   onClick={this.handleEdit}><Edit /> </Button> 
+                        }
                     </DialogActions>
                 </Dialog>
             </div>
         )
     }
 }
+
+EditEvent.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
 export default withStyles(styles)(EditEvent);    
